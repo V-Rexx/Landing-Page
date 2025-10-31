@@ -36,11 +36,20 @@ function Footer() {
 
 
             </div>
+        </div>
 
-            <div className="border-t border-white/20 mt-10 pt-5 text-center text-sm text-gray-200">
+        {/* Bottom Part */}
+        <div className="border-t border-white/20 mt-10 pt-5 text-center text-sm text-gray-200">
+            <div className='max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-200'>
                 <p>© {new Date().getFullYear()} NIT Silchar Hackathon </p>
+                <ul className='flex gap-x-4 mt-3 md:mt-0'>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Guidelines</a></li>
+                </ul>
             </div>
 
+            
         </div>
 
     </footer>
