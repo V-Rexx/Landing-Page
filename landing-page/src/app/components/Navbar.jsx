@@ -16,15 +16,19 @@ export default function Navbar() {
         <a href="#" className="hover:text-[#9D9DFF] transition">About the Event</a>
         <a href="#" className="hover:text-[#9D9DFF] transition">Rounds/Format</a>
         <a href="#" className="hover:text-[#9D9DFF] transition">Prizes</a>
-        <a href="#" className="hover:text-[#9D9DFF] transition">Registration</a>
         <a href="#" className="hover:text-[#9D9DFF] transition">Contact</a>
-        <a href="#" className="hover:text-[#9D9DFF] transition">Login</a>
+
       </div>
 
       {/* Right Button */}
-      <button className="border border-white px-5 py-2 rounded-md font-bold hover:bg-white hover:text-[#16163F] transition">
-        START HACKING
-      </button>
+      <div className="space-x-10">
+        <button className="border border-white px-3 py-2 rounded-md font-bold hover:bg-white hover:text-[#16163F] transition">
+          Register Now
+        </button>
+        <button className="border border-white px-3 py-2 rounded-md font-bold hover:bg-white hover:text-[#16163F] transition">
+          Login
+        </button>
+      </div>
     </nav>
   );
 }
