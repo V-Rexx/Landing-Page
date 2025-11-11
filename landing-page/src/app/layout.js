@@ -1,7 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { WavyBackground } from "./components/ui/wavy-background";
-import { Vortex } from "./components/ui/vortex";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

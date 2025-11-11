@@ -2,7 +2,7 @@
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-[rgb(28,28,63)] text-white py-10 px-6">
+    <footer className="w-full bg-[rgb(28,28,63)] text-white py-10 px-6 backdrop-blur-md bg-white/10 border-white/20 text-white z-50 transition-all duration-300">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
 
         {/* Left Part */}
