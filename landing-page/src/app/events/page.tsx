@@ -47,8 +47,7 @@ export default function EventsRoadmap() {
     <>
       <Navbar />
 
-      {/* Add spacing below fixed navbar */}
-      <div className="min-h-screen bg-[#0A0A12] text-white px-6 pt-32 pb-14">
+      <div className="min-h-screen bg-[#16163F] text-white px-6 pt-28 pb-14">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Hackathon 2026 — Event Roadmap
@@ -62,7 +61,7 @@ export default function EventsRoadmap() {
               <div key={idx} className="relative">
                 <div className="absolute -left-3.5 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 border border-gray-900 shadow-lg"></div>
 
-                <div className="bg-[#161622] border border-gray-700 p-5 rounded-xl shadow hover:border-blue-500 transition">
+                <div className="bg-[#1B1B3A] border border-gray-700 p-5 rounded-xl shadow hover:border-blue-500 transition">
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
                       ev.mode.toLowerCase().includes("online")

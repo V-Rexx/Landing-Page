@@ -8,7 +8,7 @@ export default function RegisterPage() {
       <Navbar />
 
       {/* Added pt-32 for spacing below fixed navbar */}
-      <div className="min-h-screen bg-[#0A0A12] text-white px-6 pt-32 pb-14">
+      <div className="min-h-screen bg-[#16163F] text-white px-6 pt-32 pb-14">
         <div className="max-w-4xl mx-auto">
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
