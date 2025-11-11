@@ -4,11 +4,9 @@ import Footer from "../components/Footer";
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-[#16163F] text-white">
       <Navbar />
-
-      {/* Added pt-32 so content stays below the fixed navbar */}
-      <div className="min-h-screen bg-[#16163F] text-white px-6 pt-32 pb-14">
+      <main className="grow px-6 pt-32 pb-14">
         <div className="max-w-5xl mx-auto">
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -73,16 +71,15 @@ export default function AboutPage() {
           <div className="text-center">
             <a
               href="/"
-              className="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg text-sm font-medium hover:opacity-80 transition"
+              className="bg-linear-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg text-sm font-medium hover:opacity-80 transition"
             >
               Back to Home
             </a>
           </div>
 
         </div>
-      </div>
-
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -4,10 +4,9 @@ import Footer from "../components/Footer";
 
 export default function PrizesPage() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-[#16163F] text-white">
       <Navbar />
-
-      <div className="min-h-screen bg-[#16163F] text-white px-6 pt-32 pb-14">
+      <main className="grow px-6 pt-32 pb-14">
         <div className="max-w-5xl mx-auto">
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -79,16 +78,15 @@ export default function PrizesPage() {
           <div className="text-center">
             <a
               href="/register"
-              className="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-80 transition"
+              className="bg-linear-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-80 transition"
             >
               Register Now
             </a>
           </div>
 
         </div>
-      </div>
-
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }

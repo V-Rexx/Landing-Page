@@ -15,28 +15,28 @@ export default function RegisterPage() {
     member1Email: "",
     member2Name: "",
     member2Email: "",
+    paymentMethod: "",
+    transactionId: "",
   });
 
+  const [receipt, setReceipt] = useState<File | null>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) setReceipt(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess(false);
 
-    const {
-      teamName,
-      institution,
-      leaderName,
-      leaderEmail,
-      leaderPassword,
-      confirmPassword,
-    } = form;
+    const { teamName, institution, leaderName, leaderEmail, leaderPassword, confirmPassword, paymentMethod } = form;
 
     if (!teamName || !institution || !leaderName || !leaderEmail || !leaderPassword || !confirmPassword) {
       setError("⚠️ Please fill all required fields.");
@@ -48,12 +48,18 @@ export default function RegisterPage() {
       return;
     }
 
-    // TODO: Replace with backend API call to send confirmation emails
+    if (!paymentMethod) {
+      setError("⚠️ Please select a payment method.");
+      return;
+    }
+
+    // Simulate successful submission
     setSuccess(true);
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-[#16163F] text-white">
+
       <Navbar />
 
       <div className="min-h-screen bg-[#16163F] text-white px-6 pt-32 pb-14">
@@ -125,7 +131,7 @@ export default function RegisterPage() {
                     value={form.leaderEmail}
                     onChange={handleChange}
                     className="p-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500"
-                  />
+                    />
                   <input
                     type="password"
                     name="leaderPassword"
@@ -156,7 +162,7 @@ export default function RegisterPage() {
                     value={form.member1Name}
                     onChange={handleChange}
                     className="p-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500"
-                  />
+                    />
                   <input
                     type="email"
                     name="member1Email"
@@ -183,6 +189,43 @@ export default function RegisterPage() {
                   />
                 </div>
               </div>
+              
+              <div className="bg-gray-900/40 p-4 rounded-lg border border-gray-700">
+                <h3 className="text-lg font-semibold text-purple-400 mb-3">Payment Details</h3>
+                <p className="text-gray-400 text-sm mb-3">Please complete the ₹2000 registration payment before submitting.</p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <select
+                    name="paymentMethod"
+                    value={form.paymentMethod}
+                    onChange={handleChange}
+                    className="p-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Select Payment Method</option>
+                    <option value="online">Online (Razorpay/UPI)</option>
+                    <option value="bank">Bank Transfer / UPI</option>
+                  </select>
+
+                  <input
+                    type="text"
+                    name="transactionId"
+                    placeholder="Transaction / UPI Reference ID"
+                    value={form.transactionId}
+                    onChange={handleChange}
+                    className="input"
+                  />
+                </div>
+
+                <div className="mt-3">
+                  <label className="text-sm text-gray-400 block mb-2">Upload Payment Receipt (JPG/PNG/PDF)</label>
+                  <input
+                    type="file"
+                    accept="image/*,application/pdf"
+                    onChange={handleFileChange}
+                    className="w-full bg-gray-800 text-sm text-gray-300 p-2 rounded-lg border border-gray-700"
+                  />
+                </div>
+              </div>
 
               {/* Feedback */}
               {error && <p className="text-red-400 text-sm">{error}</p>}
@@ -196,7 +239,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 className="bg-gradient-to-r from-purple-500 to-blue-500 py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-all"
-              >
+                >
                 Submit Team Registration
               </button>
             </form>
@@ -218,14 +261,14 @@ export default function RegisterPage() {
             <a
               href="/"
               className="bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-80 transition"
-            >
+              >
               Back to Home
             </a>
           </div>
         </div>
       </div>
 
-      <Footer />
-    </>
+      {/* <Footer /> */}
+      </div>
   );
 }

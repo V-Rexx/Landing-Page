@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
   const router = useRouter();
+  const formRef = useRef<HTMLDivElement>(null);
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
@@ -29,9 +30,22 @@ export default function AuthPage() {
     }
   };
 
+  const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // If clicked outside the form container
+    if (formRef.current && !formRef.current.contains(e.target as Node)) {
+      router.push("/"); // redirect to homepage
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800">
-      <div className="w-full max-w-md bg-gray-800/80 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-2xl p-8">
+    <div
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800"
+      onClick={handleBackgroundClick}
+    >
+      <div
+        ref={formRef}
+        className="w-full max-w-md bg-gray-800/80 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-2xl p-8"
+      >
         <h1 className="text-3xl font-bold text-center text-white mb-6">
           {mode === "login" ? "Login to Hackathon 2026" : "Sign Up for Hackathon 2026"}
         </h1>
