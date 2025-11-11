@@ -44,10 +44,11 @@ const events = [
 
 export default function EventsRoadmap() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-[#16163F] text-white">
       <Navbar />
-
-      <div className="min-h-screen bg-[#16163F] text-white px-6 pt-28 pb-14">
+      {/* Spacer to offset fixed navbar height */}
+      <div className="h-24" />
+      <main className="grow px-6 pb-14">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Hackathon 2026 — Event Roadmap
@@ -55,12 +56,10 @@ export default function EventsRoadmap() {
           <p className="text-gray-400 mb-12">
             Timeline of all hackathon events
           </p>
-
           <div className="space-y-10 relative border-l border-gray-700 pl-6">
             {events.map((ev, idx) => (
               <div key={idx} className="relative">
-                <div className="absolute -left-3.5 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 border border-gray-900 shadow-lg"></div>
-
+                <div className="absolute -left-3.5 w-6 h-6 rounded-full bg-linear-to-r from-purple-500 to-blue-500 border border-gray-900 shadow-lg"></div>
                 <div className="bg-[#1B1B3A] border border-gray-700 p-5 rounded-xl shadow hover:border-blue-500 transition">
                   <span
                     className={`text-xs px-2 py-1 rounded-md ${
@@ -71,16 +70,12 @@ export default function EventsRoadmap() {
                   >
                     {ev.mode}
                   </span>
-
                   <h2 className="mt-2 text-lg font-semibold">{ev.title}</h2>
-
                   <p className="text-gray-400 text-sm mt-1">🗓 {ev.date}</p>
-
                   <p className="text-gray-300 text-sm mt-2">
                     {ev.details}
                   </p>
-
-                  <button className="mt-3 bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-md text-xs font-medium hover:opacity-80 transition">
+                  <button className="mt-3 bg-linear-to-r from-purple-500 to-blue-500 px-4 py-2 rounded-md text-xs font-medium hover:opacity-80 transition">
                     View Details
                   </button>
                 </div>
@@ -88,9 +83,8 @@ export default function EventsRoadmap() {
             ))}
           </div>
         </div>
-      </div>
-
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
