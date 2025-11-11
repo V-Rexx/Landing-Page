@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
         {/* Center Links */}
         <div className="hidden md:flex space-x-8 font-semibold text-sm uppercase">
           <a href="/" className="hover:text-[#9D9DFF] transition">Home</a>
-          <a href="/about" className="hover:text-[#9D9DFF] transition">Event</a>
+          <a href="/about" className="hover:text-[#9D9DFF] transition">About</a>
           <a href="/events" className="hover:text-[#9D9DFF] transition">Rounds</a>
           <a href="/prizes" className="hover:text-[#9D9DFF] transition">Prizes</a>
           <a href="#" className="hover:text-[#9D9DFF] transition">Contact</a>
@@ -28,9 +28,12 @@ const Navbar: React.FC = () => {
               Register Now
             </button>
           </a>
+          <a href="/login">
+            
           <button className="border border-white px-3 py-2 rounded-md font-bold hover:bg-white hover:text-[#16163F] transition cursor-pointer">
             Login
           </button>
+          </a>
         </div>
       </nav>
     </div>
