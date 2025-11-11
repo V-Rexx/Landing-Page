@@ -5,8 +5,7 @@ import React from "react";
 const Navbar: React.FC = () => {
   return (
     <div className="flex justify-center fixed w-full mt-10">
-      <nav className="flex justify-between items-center w-[80%] max-w-5xl px-6 py-3 
-      rounded-2xl shadow-lg backdrop-blur-md bg-white/10 border-white/20 text-white z-50 transition-all duration-300">
+      <nav className="flex justify-between items-center w-[80%] max-w-5xl px-6 py-3 rounded-2xl shadow-lg backdrop-blur-md bg-white/10 border-white/20 text-white z-50 transition-all duration-300">
         {/* Left Logo */}
         <div className="flex items-center space-x-3">
           <div className="bg-[#2A2A6A] text-white font-bold px-3 py-1 rounded-md">HF</div>
