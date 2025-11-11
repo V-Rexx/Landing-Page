@@ -6,7 +6,9 @@ export default function Navbar() {
     <nav className="bg-[#16163F] text-white px-10 py-4 flex items-center justify-between  shadow-md border border-[#2A2A6A]">
       {/* Left Logo */}
       <div className="flex items-center space-x-3">
-        <div className="bg-[#2A2A6A] text-white font-bold px-3 py-1 rounded-md">HF</div>
+        <div className="bg-[#2A2A6A] text-white font-bold px-3 py-1 rounded-md">
+          
+        </div>
         <h1 className="text-xl font-bold tracking-wide">Nit Silchar</h1>
       </div>
 
