@@ -1,21 +1,24 @@
 import { NextResponse } from "next/server";
+import path from "path";
+import { promises as fs } from "fs";
 
 export async function POST(req: Request) {
   const { answers } = await req.json();
 
-  const correctAnswers: Record<string, string> = {
-    "1": "Greedy Algorithm",
-    "2": "O(log n)",
-    "3": "Queue",
-    "4": "Merge Sort",
-    "5": "O(V + E)",
-  };
+  const filePath = path.join(process.cwd(), "src/app/data/questions.json");
+  const fileContents = await fs.readFile(filePath, "utf-8");
+  const allQuestions = JSON.parse(fileContents);
+
+  // Map for quick lookup
+  const correctMap = allQuestions.reduce((acc: any, q: any) => {
+    acc[q._id] = q.answer;
+    return acc;
+  }, {});
 
   let score = 0;
   for (const [id, ans] of Object.entries(answers)) {
-    if (correctAnswers[id] === ans) score += 20;
+    if (correctMap[id] === ans) score += 20;
   }
 
-  // TODO: Store score in DB for team leader
   return NextResponse.json({ score });
 }
