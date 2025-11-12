@@ -83,7 +83,7 @@ export default function AssessmentPage() {
                     Question {current + 1} of {questions.length}
                   </h2>
                   <p className="text-red-500 font-semibold">
-                    ⏰ {formatTime(timeLeft)}
+                     {formatTime(timeLeft)}
                   </p>
                 </div>
 

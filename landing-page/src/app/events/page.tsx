@@ -47,7 +47,7 @@ export default function EventsRoadmap() {
     <div className="flex flex-col min-h-screen bg-[#16163F] text-white">
       <Navbar />
       {/* Spacer to offset fixed navbar height */}
-      <div className="h-24" />
+      <div className="h-24 mt-32" />
       <main className="grow px-6 pb-14">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
