@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
   let score = 0;
   for (const [id, ans] of Object.entries(answers)) {
-    if (correctMap[id] === ans) score += 20;
+    if (correctMap[id] === ans) score += 2;
   }
 
   return NextResponse.json({ score });

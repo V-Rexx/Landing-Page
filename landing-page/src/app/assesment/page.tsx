@@ -195,7 +195,7 @@ export default function AssessmentPage() {
               </h2>
               <p className="text-lg text-gray-800">
                 Your Score:{" "}
-                <span className="font-bold text-blue-600">{score}/100</span>
+                <span className="font-bold text-blue-600">{score}/60</span>
               </p>
             </div>
           )}
